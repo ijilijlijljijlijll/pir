@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo sin amo | Contribuciones para piratear en tiempos de streaming y control digital</title>
+    <style>
+        body {
+
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+        h1 {
+            text-align: center;
+            color: #00f7ff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #00f7ff, 0 0 10px #00a2ff;
+        }
+        .fanzine-portada {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .fanzine-portada img {
+            max-width: 300px;
+            width: 100%;
+            border: 2px solid #00f7ff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00f7ff, 0 0 20px #00a2ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .fanzine-portada img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px #00f7ff, 0 0 30px #00a2ff;
+        }
+        .fanzine-portada .caption {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #aaa;
+            text-shadow: 0 0 2px #00f7ff;
+        }
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .column {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.1);
+            border: 1px solid #333;
+        }
+        .column h2 {
+            font-size: 1.2em;
+            border-bottom: 2px solid #00f7ff;
+            padding-bottom: 5px;
+            margin-top: 0;
+            color: #00f7ff;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list li {
+            margin: 12px 0;
+            padding: 8px 0;
+            border-bottom: 1px dashed #333;
+        }
+        .link-list a {
+            color: #00a2ff;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .link-list a:hover {
+            color: #00f7ff;
+            text-shadow: 0 0 5px #00a2ff;
+        }
+        .link-description {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-top: 4px;
+            padding-left: 10px;
+            font-style: italic;
+        }
+        .protocol-torrent {
+            font-size: 10px;
+            color: #00ff88;
+            text-shadow: 0 0 3px #00ff88;
+            animation: neon-pulse-torrent 1.5s infinite alternate;
+        }
+        .protocol-emule {
+            font-size: 10px;
+            color: #ff00aa;
+            text-shadow: 0 0 3px #ff00aa;
+            animation: neon-pulse-emule 1.5s infinite alternate;
+        }
+        .protocol-direct {
+            font-size: 10px;
+            color: #ffff3c;
+            text-shadow: 0 0 3px #ffff3c;
+            animation: neon-pulse-direct 1.5s infinite alternate;
+        }
+        .protocol-telegram {
+            font-size: 10px;
+            color: #ffaf33;
+            text-shadow: 0 0 3px #ffaf33;
+            animation: neon-pulse-telegram 1.5s infinite alternate;
+        }
+        .protocol-online {
+            font-size: 10px;
+            color: #ec3422;
+            text-shadow: 0 0 3px #ec3422;
+            animation: neon-pulse-online 1.5s infinite alternate;
+        }
+        .protocol-ipfs {
+            font-size: 10px;
+            color: #3ceaff;
+            text-shadow: 0 0 3px #3ceaff;
+            animation: neon-pulse-ipfs 1.5s infinite alternate;
+        }
+        @keyframes neon-pulse-torrent {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88; }
+        }
+        @keyframes neon-pulse-emule {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #ff00aa, 0 0 10px #ff00aa; }
+        }
+        @keyframes neon-pulse-direct {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #ffff3c, 0 0 10px #ffff3c; }
+        }
+        @keyframes neon-pulse-telegram {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #ffaf33, 0 0 10px #ffaf33; }
+        }
+        @keyframes neon-pulse-online {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #ec3422, 0 0 10px #ec3422; }
+        }
+        @keyframes neon-pulse-ipfs {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 5px #3ceaff, 0 0 10px #3ceaff; }
+        }
+        @media (max-width: 768px) {
+            .columns {
+                grid-template-columns: 1fr;
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="fanzine-portada">
+<a href="http://ipfs.io/ipfs/bafybeig4tahnaphzxotv7a5yznlr6whwsjnclb4ecnr5ymngnnc24kvybm" target="_blank" rel="noreferrer noopener">
+    <h1>DESCARGAR FANZINE EN PDF</h1></a>
+        <a href="http://ipfs.io/ipfs/bafybeig4tahnaphzxotv7a5yznlr6whwsjnclb4ecnr5ymngnnc24kvybm" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ibb.co/1tqrYd47/1312.png" alt="Descargar">
+        </a>
+    </div>
+    <h1>📚 ANEXO</h1>
+    <div class="columns">
+        <div class="column">
+            <h2>📓Libros</h2>
+            <ul class="link-list">
+                <li>
+<a href="https://libgen.li" target="_blank" rel="noreferrer noopener">
+    LibGen
+    <span class="protocol-icons">
+        <span class="protocol-ipfs">IPFS</span>
+        <span class="protocol-direct">D.Directa</span>
+        <span class="protocol-torrent">Torrent</span>
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF y múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://epublibre.org" target="_blank" rel="noreferrer noopener">
+    EpubLibre
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">EPUB</font></div>
+                </li>
+                <li>
+<a href="https://es.annas-archive.li" target="_blank" rel="noreferrer noopener">
+    Anna’s Archive
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Multiformato y múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://z-library.sk" target="_blank" rel="noreferrer noopener">
+    Z-Library
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Multiformato y múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://oceanofpdf.com" target="_blank" rel="noreferrer noopener">
+    OceanofPDF
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF / EPUB y múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://pirateca.com" target="_blank" rel="noreferrer noopener">
+    Pirateca
+    <span class="protocol-icons">
+        <span class="protocol-ipfs">IPFS</span>
+        <span class="protocol-direct">D.Directa</span>
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF</font></div>
+                </li>
+                <li>
+<a href="https://web.archive.org/web/20231210101035/lapirateca.com" target="_blank" rel="noreferrer noopener">
+    La Extinta Pirateca
+    <span class="protocol-icons">
+        <span class="protocol-ipfs">IPFS</span>
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF</font></div>
+                </li>
+                <li>
+<a href="http://bibliotecasecreta.nl" target="_blank" rel="noreferrer noopener">
+    Biblioteca Secreta
+    <span class="protocol-icons">
+        <span class="protocol-telegram">Bot de Telegram</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">EPUB / Lectura Online</font></div>
+                </li>
+                <li>
+<a href="https://es.anarchistlibraries.net" target="_blank" rel="noreferrer noopener">
+    Biblioteca Anarquista
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Multiformato y múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://tumblr.com/anarquismoenpdf" target="_blank" rel="noreferrer noopener">
+    Anarquismo en PDF
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF</font></div>
+                </li>
+                <li>
+<a href="https://lectulandia.com" target="_blank" rel="noreferrer noopener">
+    Lectulandia
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF / EPUB</font></div>
+                </li>
+                <li>
+<a href="https://freeditorial.com" target="_blank" rel="noreferrer noopener">
+    Freeditorial
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">PDF / EPUB / Lectura Online</font></div>
+                </li>
+                <li>
+<a href="https://fmhy.net/readingpiracyguide" target="_blank" rel="noreferrer noopener">
+    <center>Más sitios sobre piratería de libros</center>
+</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>🎞️ Películas</h2>
+            <ul class="link-list">
+                <li>
+<a href="https://clan-sudamerica.net" target="_blank" rel="noreferrer noopener">
+    Clan Sudamérica
+    <span class="protocol-icons">
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Cine latinoamericano y de españa</font></div>
+                </li>
+                <li>
+<a href="https://exploradoresp2p.com" target="_blank" rel="noreferrer noopener">
+    Exploradores P2P
+    <span class="protocol-icons">
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">De todo un poco. Muchísima variedad</font></div>
+                </li>
+                <li>
+<a href="https://rebeldemule.org" target="_blank" rel="noreferrer noopener">
+    RebeldeMule
+    <span class="protocol-icons">
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Cine social y crítico</font></div>
+                </li>
+                <li>
+<a href="https://cineforum-clasico.org" target="_blank" rel="noreferrer noopener">
+    Cinefórum Clásico
+    <span class="protocol-icons">
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Cine clásico</font></div>
+                </li>
+                <li>
+<a href="https://divxclasico.com" target="_blank" rel="noreferrer noopener">
+    DivX Clásico
+    <span class="protocol-icons">
+        <span class="protocol-emule">eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Cine clásico</font></div>
+                </li>
+                <li>
+<a href="https://yts.lt" target="_blank" rel="noreferrer noopener">
+    YTS
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+        <span class="protocol-online">Online</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Estrenos películas</font></div>
+                </li>
+                <li>
+<a href="https://ddlbase.com" target="_blank" rel="noreferrer noopener">
+    DDLBase
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Mayormente estrenos y calidad Bluray</font></div>
+                </li>
+                <li>
+<a href="https://torrenting.com" target="_blank" rel="noreferrer noopener">
+    Torrenting
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Estrenos películas y series</font></div>
+                </li>
+                <li>
+<a href="https://bt4gprx.com" target="_blank" rel="noreferrer noopener">
+    BT4G
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Buscador de distintos sitios de torrent</font></div>
+                </li>
+                <li>
+<a href="https://eztvx.to" target="_blank" rel="noreferrer noopener">
+    EZTV
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Buscador de distintos sitios de torrent</font></div>
+                </li>
+                <li>
+<a href="https://1377x.to" target="_blank" rel="noreferrer noopener">
+    1337x
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Variado</font></div>
+                </li>
+                <li>
+<a href="https://piratebayproxy.info" target="_blank" rel="noreferrer noopener">
+    The Pirate Bay
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Variado</font></div>
+                </li>
+                <li>
+<a href="https://peliculasbluray.com" target="_blank" rel="noreferrer noopener">
+    Peliculas Bluray
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Mayormente estrenos</font></div>
+                </li>
+                <li>
+<a href="https://uscflix.net" target="_blank" rel="noreferrer noopener">
+    USCFLIX
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Variado</font></div>
+                </li>
+                <li>
+<a href="https://60fpsworld.com/" target="_blank" rel="noreferrer noopener">
+    60FPS
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Variado</font></div>
+                </li>
+                <li>
+<a href="https://bludv-v1.xyz" target="_blank" rel="noreferrer noopener">
+    BLUDV
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Estrenos películas y series. Sitio brasilero</font></div>
+                </li>
+                <li>
+<a href="https://mega-mkv.com" target="_blank" rel="noreferrer noopener">
+    Mega MKV
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Estrenos películas y series Subs y Doblado</font></div>
+                </li>
+                <li>
+<a href="https://extreme-down.rodeo" target="_blank" rel="noreferrer noopener">
+    Extreme Download
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Estrenos películas y series. Sitio francés</font></div>
+                </li>
+                <li>
+<a href="https://gdrivelatinohd.net" target="_blank" rel="noreferrer noopener">
+    GDRIVELATINOHD
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series y películas comerciales de plataformas</font></div>
+                </li>
+                <li>
+<a href="https://subdivx.com" target="_blank" rel="noreferrer noopener">
+    Subdivx
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Subtítulos</font></div>
+                </li>
+                <li>
+<a href="https://opensubtitles.org" target="_blank" rel="noreferrer noopener">
+    OpenSubtitles
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Subtítulos. Múltiples idiomas</font></div>
+                </li>
+                <li>
+<a href="https://mundotoon.com" target="_blank" rel="noreferrer noopener">
+    MundoToon
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series y películas animadas</font></div>
+                </li>
+                <li>
+<a href="https://seriesanimadas.pormega.com" target="_blank" rel="noreferrer noopener">
+    Series Animadas
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series animadas</font></div>
+                </li>
+                </li>
+                <li>
+<a href="https://clasicosanimados.com" target="_blank" rel="noreferrer noopener">
+    Clásicos Animados
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series clásicas animadas</font></div>
+                </li>
+                <li>
+<a href="https://sphinxanime.com" target="_blank" rel="noreferrer noopener">
+    SphinxAnime
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Anime</font></div>
+                </li>
+                <li>
+<a href="https://www.xuper-tv.link" target="_blank" rel="noreferrer noopener">
+    Xuper TV
+    <span class="protocol-icons">
+        <span class="protocol-online">Online</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Aplicación de streaming para Android</font></div>
+                </li>
+                <li>
+<a href="https://pluto.tv" target="_blank" rel="noreferrer noopener">
+    Pluto TV
+    <span class="protocol-icons">
+        <span class="protocol-online">Online</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series y Películas</font></div>
+                </li>
+                <li>
+<a href="https://hackstore2.com" target="_blank" rel="noreferrer noopener">
+    Hackstore2
+    <span class="protocol-icons">
+        <span class="protocol-online">Online</span>
+        <span class="protocol-direct">D.Directa</span>
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Idioma original y latino</font></div>
+                </li>
+                <li>
+<a href="https://poseidonhd2.co" target="_blank" rel="noreferrer noopener">
+    PoseidonHD2
+    <span class="protocol-icons">
+        <span class="protocol-online">Online</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Idioma original y latino</font></div>
+                </li>
+                <li>
+<a href="https://la.movie" target="_blank" rel="noreferrer noopener">
+    La.Movie
+    <span class="protocol-icons">
+        <span class="protocol-online">Online</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Dobladas al latino</font></div>
+                </li>
+                <li>
+<a href="https://pelisenhd.org" target="_blank" rel="noreferrer noopener">
+    Pelis en HD
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series. Idioma original y latino</font></div>
+                </li>
+                <li>
+<a href="https://latinomegahd.net/" target="_blank" rel="noreferrer noopener">
+    LatinoMegaHD
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Películas y series dobladas en latino</font></div>
+                </li>
+                <li>
+<a href="https://series.pormega.com" target="_blank" rel="noreferrer noopener">
+    Series Latino
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Series dobladas en latino</font></div>
+                </li>
+                <li>
+<a href="https://passthepopcorn.me" target="_blank" rel="noreferrer noopener">
+    Passthepopcorn
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">El tracker privado mas grande</font></div>
+                </li>
+                <li>
+<a href="https://karagarga.in" target="_blank" rel="noreferrer noopener">
+    Karagarga
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Tracker privado. Cine independiente</font></div>
+                </li>
+                <li>
+<a href="https://fmhy.net/videopiracyguide" target="_blank" rel="noreferrer noopener">
+    <center>Más sitios sobre piratería de películas</center>
+</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>🎵 Música</h2>
+            <ul class="link-list">
+                <li>
+<a href="https://slsknet.org" target="_blank" rel="noreferrer noopener">
+    Soulseek
+    <span class="protocol-icons">
+        <span class="protocol-emule">Similar a eMule</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programa P2P</font></div>
+                </li>
+                <li>
+<a href="https://t.me/BeatSpotBot" target="_blank" rel="noreferrer noopener">
+    BeatSpotBot
+    <span class="protocol-icons">
+        <span class="protocol-telegram">Bot de Telegram</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Spotify / Deezer / Tidal / Yandex / VK</font></div>
+                </li>
+                <li>
+<a href="https://rockdownload.org" target="_blank" rel="noreferrer noopener">
+    Rock Download
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Rock comercial y derivados</font></div>
+                </li>
+                <li>
+<a href="https://getrockmusic.net" target="_blank" rel="noreferrer noopener">
+    GetRockMusic
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Rock independiente  y derivados. Variedad</font></div>
+                </li>
+                <li>
+<a href="https://newalbumreleases.net" target="_blank" rel="noreferrer noopener">
+    New Album Releases
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Variado</font></div>
+                </li>
+                <li>
+<a href="https://flacmusic.info" target="_blank" rel="noreferrer noopener">
+    MusicLossless
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Variedad en FLAC</font></div>
+                </li>
+                <li>
+<a href="https://anarcho-punk.net" target="_blank" rel="noreferrer noopener">
+    Anarcho-Punk
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Punk y derivados</font></div>
+                </li>
+                <li>
+<a href="https://punkconpunk.blogspot.com" target="_blank" rel="noreferrer noopener">
+    Punk con Punk
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Punk y derivados</font></div>
+                </li>
+                <li>
+<a href="https://punkcata.blogspot.com" target="_blank" rel="noreferrer noopener">
+    punk.cat
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Punk y derivados</font></div>
+                </li>
+                <li>
+<a href="https://ioriska.net" target="_blank" rel="noreferrer noopener">
+    Ioriska
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Ska y derivados</font></div>
+                </li>
+                <li>
+<a href="https://rawkbawx.rocks" target="_blank" rel="noreferrer noopener">
+    RockBox
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Metal y derivados</font></div>
+                </li>
+                <li>
+<a href="https://musicaandinayfolclor.blogspot.com" target="_blank" rel="noreferrer noopener">
+    Música Andina y Folclor
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Folclore Andino</font></div>
+                </li>
+                <li>
+<a href="https://egrojworld.blogspot.com" target="_blank" rel="noreferrer noopener">
+    egroj world
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Jazz y derivados</font></div>
+                </li>
+                <li>
+<a href="https://glorybeats.com" target="_blank" rel="noreferrer noopener">
+    GloryBeats
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Electrónica y derivados</font></div>
+                </li>
+                <li>
+<a href="https://flacattack.net" target="_blank" rel="noreferrer noopener">
+    FlacAttack
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Electrónica y derivados en FLAC</font></div>
+                </li>
+                <li>
+<a href="https://losslessma.net" target="_blank" rel="noreferrer noopener">
+    Lossless Music Archives
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Variedad en FLAC</font></div>
+                </li>
+                <li>
+<a href="https://redacted.sh" target="_blank" rel="noreferrer noopener">
+    Redacted
+    <span class="protocol-icons">
+        <span class="protocol-torrent">Torrent</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Tracker privado</font></div>
+                </li>
+                <li>
+<a href="https://fmhy.net/audiopiracyguide" target="_blank" rel="noreferrer noopener">
+    <center>Más sitios sobre piratería de música</center>
+</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>⚙️ Software</h2>
+            <ul class="link-list">
+                <li>
+<a href="https://zdescargas.org" target="_blank" rel="noreferrer noopener">
+    Zdescargas
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas, Sistemas Operativos, Android</font></div>
+                </li>
+                <li>
+<a href="https://artistapirata.com" target="_blank" rel="noreferrer noopener">
+    ArtistaPirata
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas, Sistemas Operativos</font></div>
+                </li>
+                <li>
+<a href="https://awdescargas.com" target="_blank" rel="noreferrer noopener">
+    AwDescargas
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas, Sistemas Operativos</font></div>
+                </li>
+                <li>
+<a href="https://masterpctutoriales.com" target="_blank" rel="noreferrer noopener">
+    MasterPCTutoriales
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas, Sistemas Operativos</font></div>
+                </li>
+                <li>
+<a href="https://cracksurl.com" target="_blank" rel="noreferrer noopener">
+    CRACKSurl
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas</font></div>
+                </li>
+                <li>
+<a href="https://thehouseofportable.com" target="_blank" rel="noreferrer noopener">
+    The House of Portable
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas portables</font></div>
+                </li>
+                <li>
+<a href="https://portableapps.com/apps" target="_blank" rel="noreferrer noopener">
+    PortableApps
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas portables</font></div>
+                </li>
+                <li>
+<a href="https://haxpc.net" target="_blank" rel="noreferrer noopener">
+    HaxPC
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Programas</font></div>
+                </li>
+                <li>
+<a href="https://allmacworld.co" target="_blank" rel="noreferrer noopener">
+    AllMacWorld
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Mac</font></div>
+                </li>
+                <li>
+<a href="https://apkmody.com" target="_blank" rel="noreferrer noopener">
+    APKMody
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Android</font></div>
+                </li>
+                <li>
+<a href="https://rockmods.net" target="_blank" rel="noreferrer noopener">
+    RockMods
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Android</font></div>
+                </li>
+                <li>
+<a href="https://modapkyolo.com" target="_blank" rel="noreferrer noopener">
+    ModApkYolo
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Android</font></div>
+                </li>
+                <li>
+<a href="https://9mod.com" target="_blank" rel="noreferrer noopener">
+    9mod
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Android</font></div>
+                </li>
+                <li>
+<a href="https://liteapks.com" target="_blank" rel="noreferrer noopener">
+    LITEAPKS
+    <span class="protocol-icons">
+        <span class="protocol-direct">D.Directa</span>
+    </span>
+</a>
+                    <div class="link-description"><font size="1">Android</font></div>
+                </li>
+                <li>
+<a href="https://fmhy.net/downloadpiracyguide#software-sites" target="_blank" rel="noreferrer noopener">
+    <center>Más sitios sobre piratería de software</center>
+</a>
+                </li>
+            </ul>
+        </div>
+    </div>    
+    <footer>
+        <p>
+<a href="https://jdownloader.org/download/index" target="_blank" rel="noreferrer noopener">
+    <span class="protocol-direct">Gestor de Descargas Directas recomendado</span>
+</a>
+<br>
+<a href="https://deluge-torrent.org/download" target="_blank" rel="noreferrer noopener">
+    <span class="protocol-torrent">Cliente Torrent recomendado</span>
+</a>
+<br>
+<a href="https://emule-project.com/home/perl/help.cgi?l=17&rm=show_topic&topic_id=586" target="_blank" rel="noreferrer noopener">
+    <span class="protocol-emule">Cómo usar eMule</span>
+</a>
+        </p>
+        <p>con mucho amor y cariño ♥ | Ultima actualización: Marzo 2026</p>
+    </footer>
+</body>
+</html>
